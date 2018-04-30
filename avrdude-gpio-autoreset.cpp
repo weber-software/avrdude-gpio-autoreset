@@ -16,7 +16,7 @@
 #include <regex>
 #include "./includes/GPIOClass.h"
 
-#define RESET_PIN        4                  //Pin which do the reset, GPIOx
+#define RESET_PIN        7                  //Pin which do the reset, GPIOx
 #define TIMEOUT          5.0                //program quits after x seconds
 #define CLOCK_CORRECTION 10.0               //is required because of using usleep
 #define SEARCH_PATTERN   ".+TIOCM_DTR.+"    //if found in inputLine, reset pin gets triggered
