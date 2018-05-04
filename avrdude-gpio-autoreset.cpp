@@ -16,7 +16,7 @@
 #include <regex>
 #include "./includes/GPIOClass.h"
 
-#define RESET_PIN        7                  //Pin which do the reset, GPIOx
+#define RESET_PIN        4                  //Pin which do the reset, GPIOx
 #define TIMEOUT          5.0                //program quits after x seconds
 #define CLOCK_CORRECTION 10.0               //is required because of using usleep
 #define SEARCH_PATTERN   ".+TIOCM_DTR.+"    //if found in inputLine, reset pin gets triggered
@@ -71,9 +71,9 @@ int main(int argc, char *argv[]){
 void reset(){
     gpio->GPIOExport(RESET_PIN);
     gpio->GPIODirection(RESET_PIN, 1);
-    gpio->GPIOWrite(RESET_PIN, 1);
-    usleep(120000);
     gpio->GPIOWrite(RESET_PIN, 0);
+    usleep(120000);
+    gpio->GPIOWrite(RESET_PIN, 1);
     gpio->GPIOUnexport(RESET_PIN);
     printf("Reset sent.");
 }
